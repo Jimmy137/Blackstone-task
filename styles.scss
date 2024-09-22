@@ -1,0 +1,133 @@
+$primaryColor: #fff2d7 ;
+$primaryTextColor: white;
+$secondaryColor: #2f2f2f;
+
+@mixin stylizedButton($color) {
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    & svg path {
+        fill: $color; 
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+    &:hover svg path {
+        opacity: 0.5;
+    }
+    &:disabled:hover .add-button-svg path {
+        opacity: 1;
+    }
+    &:disabled{
+        cursor: not-allowed;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    background: $primaryColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primaryTextColor;
+}
+p{
+    font-size: 24px;
+}
+.container {
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+}
+.items-wrapper {
+    background: $secondaryColor;
+    margin-top: 5rem;
+    padding: 2rem;
+    border-radius: 5px;
+}
+.add-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+}
+#add-button{
+    @include stylizedButton($primaryColor)
+}
+
+#new-item-input {
+    outline: none;
+    background: none;
+    border: 1px solid $primaryColor;
+    padding: 0.5rem 1rem;
+    width: 300px;
+    color: $primaryTextColor;
+    box-shadow: none;
+    transition: box-shadow 0.5s ease-in-out;
+}
+  
+#new-item-input::placeholder {
+    color: #ffffffcc;
+}
+  
+#new-item-input:focus{
+    box-shadow: 0px -1px 10px #987436, -1px 1px 5px #fffbf4, 0px 1px 0px #fffbf4;
+}
+.item {
+    padding: 10px;
+    background: $primaryColor;
+    color: $secondaryColor;
+    border-radius: 5px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    clip-path: inset(0);
+}
+.editing-item {
+    flex-direction: row-reverse;
+}
+.edit-input{
+    outline: none;
+    background: $secondaryColor;
+    border: 1px solid $primaryColor;
+    padding: 0.5rem;
+    color: $primaryTextColor;
+    font-size: 16px;
+}
+.new-item{
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+.btns {
+    display: flex;
+    gap: 1em;
+}
+.btns button {
+    @include stylizedButton($secondaryColor)
+}
+
+@media (max-width: 528px) {
+    .container {
+      min-width: 100%;
+    }
+}
+
+// animations
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}

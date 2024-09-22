@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff2d7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+p {
+  font-size: 24px;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.items-wrapper {
+  background: #2f2f2f;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.add-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+#add-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#add-button svg path {
+  fill: #fff2d7;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+#add-button:hover svg path {
+  opacity: 0.5;
+}
+#add-button:disabled:hover .add-button-svg path {
+  opacity: 1;
+}
+#add-button:disabled {
+  cursor: not-allowed;
+}
+
+#new-item-input {
+  outline: none;
+  background: none;
+  border: 1px solid #fff2d7;
+  padding: 0.5rem 1rem;
+  width: 300px;
+  color: white;
+  box-shadow: none;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+#new-item-input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#new-item-input:focus {
+  box-shadow: 0px -1px 10px #987436, -1px 1px 5px #fffbf4, 0px 1px 0px #fffbf4;
+}
+
+.item {
+  padding: 10px;
+  background: #fff2d7;
+  color: #2f2f2f;
+  border-radius: 5px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  clip-path: inset(0);
+}
+
+.editing-item {
+  flex-direction: row-reverse;
+}
+
+.edit-input {
+  outline: none;
+  background: #2f2f2f;
+  border: 1px solid #fff2d7;
+  padding: 0.5rem;
+  color: white;
+  font-size: 16px;
+}
+
+.new-item {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+.btns {
+  display: flex;
+  gap: 1em;
+}
+
+.btns button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.btns button svg path {
+  fill: #2f2f2f;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+.btns button:hover svg path {
+  opacity: 0.5;
+}
+.btns button:disabled:hover .add-button-svg path {
+  opacity: 1;
+}
+.btns button:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 528px) {
+  .container {
+    min-width: 100%;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
